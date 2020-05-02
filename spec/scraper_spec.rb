@@ -6,6 +6,7 @@ describe "Scraper" do
                                {:name=>"Mathieu Balez", :location=>"New York, NY", :profile_url=>"students/mathieu-balez.html"},
                                {:name=>"Diane Vu", :location=>"New York, NY", :profile_url=>"students/diane-vu.html"}]}
 
+
   let!(:student_joe_hash) {{:twitter=>"https://twitter.com/jmburges",
                             :linkedin=>"https://www.linkedin.com/in/jmburges",
                             :github=>"https://github.com/jmburges",
@@ -13,6 +14,7 @@ describe "Scraper" do
                             :profile_quote=>"\"Reduce to a previously solved problem\"",
                             :bio=>
   "I grew up outside of the Washington DC (NoVA!) and went to college at Carnegie Mellon University in Pittsburgh. After college, I worked as an Oracle consultant for IBM for a bit and now I teach here at The Flatiron School."}}
+
 
   let!(:student_david_hash) {{:linkedin=>"https://www.linkedin.com/in/david-kim-38221690",
  :github=>"https://github.com/davdkm",
@@ -32,6 +34,7 @@ describe "Scraper" do
     end
   end
 
+
   describe "#scrape_profile_page" do
     it "is a class method that scrapes a student's profile page and returns a hash of attributes describing an individual student" do
       profile_url = "https://learn-co-curriculum.github.io/student-scraper-test-page/students/joe-burgess.html"
@@ -39,6 +42,7 @@ describe "Scraper" do
       expect(scraped_student).to be_a(Hash)
       expect(scraped_student).to match(student_joe_hash)
     end
+
 
     it "can handle profile pages without all of the social links" do
       profile_url = "https://learn-co-curriculum.github.io/student-scraper-test-page/students/david-kim.html"
